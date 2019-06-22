@@ -1,0 +1,138 @@
+@color-very-dark-blue: rgb(0,0,5);
+@color-dark-blue: rgb(0,8,21);
+@color-blue: rgb(0, 189, 243);
+@color-yellow: rgb(255,238,71);
+@color-red: rgb(126,19,20);
+@color-purple: rgb(77,57,75);
+
+#faq {
+  background-color: fade(@color-very-dark-blue, 50%);
+  width: 1160px;
+  margin: 30px auto 0px auto;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+  &:before {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-image: url('images/message.png');
+  }
+  h1 {
+    color: @color-blue;
+    padding: 0px 0px 20px 30px;
+    font-size: 35px;
+    letter-spacing: 10px;
+  }
+  .faq-checkbox {
+    display: none;
+  }
+  .faq-checkbox:checked + .faq-label {
+    &:after {
+      right: 100%;
+    }
+  }
+  .faq-checkbox:checked + .faq-label + .faq-answer {
+    display: block;
+  }
+  .faq-label {
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    padding: 20px 0px 20px 30px;
+    font-size: 20px;
+    border-left: 1px solid @color-yellow;
+    position: relative;
+    margin-top: 15px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      height: 1px;
+      background: -moz-linear-gradient(left, rgba(255,238,71,1) 0%, rgba(125,185,232,0) 100%);
+      background: -webkit-linear-gradient(left, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      background: linear-gradient(to right, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee47', endColorstr='#007db9e8',GradientType=1 );
+    }
+    &:after {
+      content: '';
+      transition: right 300ms;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      height: 1px;
+      background: -moz-linear-gradient(left, rgba(255,238,71,1) 0%, rgba(125,185,232,0) 100%);
+      background: -webkit-linear-gradient(left, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      background: linear-gradient(to right, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee47', endColorstr='#007db9e8',GradientType=1 );
+    }
+  }
+  @keyframes answer-view {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  .faq-answer {
+    display: none;
+    transform-origin: 0px 0px;
+    border-left: 1px solid @color-yellow;
+    border-bottom: 1px solid @color-yellow;
+    color: #fff;
+    padding: 30px;
+    padding-top: 50px;
+    text-indent: 20px;
+    font-size: 17px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: answer-view 300ms;
+    //&:before {
+    //    content: '';
+    //    position: absolute;
+    //    top: 0px;
+    //    left: 0px;
+    //    bottom: 0px;
+    //    width: 1px;
+    //    background: -moz-linear-gradient(bottom, rgba(255,238,71,1) 0%, rgba(125,185,232,0) 100%);
+    //    background: -webkit-linear-gradient(bottom, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+    //    background: linear-gradient(to top, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+    //    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee47', endColorstr='#007db9e8',GradientType=1 );
+    //}
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      width: 1px;
+      background: -moz-linear-gradient(bottom, rgba(255,238,71,1) 0%, rgba(125,185,232,0) 100%);
+      background: -webkit-linear-gradient(bottom, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      background: linear-gradient(to top, rgba(255,238,71,1) 0%,rgba(125,185,232,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee47', endColorstr='#007db9e8',GradientType=1 );
+    }
+  }
+}
+@media screen and (max-width: 1250px) {
+  #faq {
+    width: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  #faq {
+    .faq-label {
+      font-size: 16px;
+    }
+    .faq-answer {
+      font-size: 15px;
+    }
+  }
+}

@@ -1,0 +1,268 @@
+@color-very-dark-blue: rgb(0,0,5);
+@color-dark-blue: rgb(0,8,21);
+@color-blue: rgb(0, 189, 243);
+@color-yellow: rgb(255,238,71);
+@color-red: rgb(126,19,20);
+@color-purple: rgb(77,57,75);
+
+#profile-menu {
+    display: flex;
+    justify-content: center;
+    p {
+        cursor: pointer;
+        color: darken(@color-blue, 30%);
+        font-size: 25px;
+        font-weight: 600;
+        margin: 5px 10px;
+        transition: color 300ms;
+        &:hover {
+            color: darken(@color-blue, 15%);
+        }
+        &.active {
+            color: @color-blue;
+        }
+    }
+}
+#profile-referals {
+     display: flex;
+     justify-content: center;
+}
+#profile-avatar {
+    width: 225px;
+    height: 225px;
+    color: #fff;
+    text-align: center;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-color: fade(@color-dark-blue, 50%);
+    & > div {
+        margin: 0px;
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            border-radius: 10px;
+        }
+    }
+    span {
+        border-bottom: 1px dashed @color-yellow;
+        margin: 5px;
+    }
+}
+#profile-referal-link {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    & > table {
+        margin-top: 20px;
+        width: 100%;
+        padding: 5px 40px;
+        tr {
+            background-color: lighten(@color-dark-blue, 5%);
+            width: 100%;
+        }
+        thead {
+            tr {
+                background: @color-dark-blue;
+            }
+            td {
+                color: @color-blue;
+                padding: 10px 0px;
+            }
+            td:last-of-type {
+                color: @color-yellow;
+            }
+        }
+        tbody {
+            tr {
+                td:first-of-type {
+                    position: relative;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0px;
+                        bottom: 0px;
+                        left: 0px;
+                        width: 3px;
+                        background: @color-yellow;
+                    }
+                }
+            }
+            tr:nth-child(even) {
+                td:first-of-type {
+                    &:before {
+                        background: @color-red;
+                    }
+                }
+            }
+        }
+        td {
+            border-bottom: 1px solid @color-dark-blue;
+            padding: 10px 0px;
+            color: #fff;
+        }
+    }
+}
+.forFone {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 30px;
+    & > div {
+        //mix-blend-mode: lighten;
+        flex: 1;
+        width: 100%;
+        margin: 0px 10px;
+        margin-top: 20px;
+        text-align: left;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: fade(@color-dark-blue, 30%);
+    }
+}
+#profile-earned-today {
+    width: 225px;
+    height: 225px;
+    //background-color: fade(@color-dark-blue,50%);
+    //border-radius: 100%;
+}
+@media screen and (max-width: 970px) {
+    #profile-menu {
+        display: flex;
+        align-items: center;
+        p {
+            font-size: 20px;
+            margin: 10px 10px;
+        }
+    }
+    #profile-referals {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+    #profile-avatar {
+        font-size: 15px;
+        width: 145px;
+        height: 145px;
+        //order: 1;
+        margin: 10px;
+    }
+    #profile-earned-today {
+        width: 145px;
+        height: 145px;
+        //order: 2;
+        margin: 10px;
+    }
+    #profile-referal-link {
+        //order: 3;
+    }
+}
+@media screen and (max-width: 790px) {
+    #profile-referals {
+        align-items: center;
+    }
+    #profile-avatar {
+        order: 1;
+        height: 70px;
+        width: 70px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: auto 100%;
+        border-radius: 10px;
+        text-align: left;
+        position: relative;
+        margin-right: 120px;
+        & > div {
+            background-color: transparent;
+        }
+        & > span {
+            position: absolute;
+            left: 90px;
+            width: 100px;
+            border: none;
+        }
+    }
+    #profile-earned-today {
+        order: 2;
+    }
+    #profile-referal-link {
+        order: 3;
+    }
+}
+@media screen and (max-width: 500px) {
+    #profile-avatar {
+        //display: none;
+    }
+    #profile-earned-today {
+        //display: none;
+    }
+    #profile-menu {
+        justify-content: space-around;
+        p {
+            font-size: 15px;
+            width: 90px;
+            margin: 10px 2px;
+        }
+    }
+    #profile-referal-link {
+        #profile-input-forlink {
+            margin: 50px 0px 0px 0px;
+        }
+        & > table {
+            padding: 5px 0px;
+        }
+    }
+    .forFone {
+        flex-direction: column;
+        margin: 0px 0px;
+        & > div {
+            margin: 0px 0px;
+            margin-top: 20px;
+            width: auto;
+        }
+    }
+}
+@media screen and (max-width: 420px) {
+    #profile-avatar {
+        width: 40px;
+        height: 40px;
+        margin-left: 0px;
+        margin-right: 75px;
+        & > span {
+            left: 50px;
+            font-size: 12px;
+            width: 60px;
+        }
+    }
+}
+@media screen and (max-width: 380px) {
+    #profile-referal-link {
+        #profile-input-forlink {
+            flex-wrap: wrap;
+            & > input {
+                margin-left: 4px;
+            }
+            & > button {
+                margin-top: 2px;
+                width: 100%;
+            }
+        }
+        & > table {
+            thead {
+                td {
+                    font-size: 12px;
+                }
+            }
+            td {
+                font-size: 12px;
+            }
+        }
+    }
+}

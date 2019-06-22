@@ -1,0 +1,401 @@
+@color-very-dark-blue: rgb(0,0,5);
+@color-dark-blue: rgb(0,8,21);
+@color-blue: rgb(0, 189, 243);
+@color-yellow: rgb(255,238,71);
+@color-red: rgb(126,19,20);
+@color-purple: rgb(77,57,75);
+
+#ransom-block {
+    #ransom-block-redeem {
+        & > p {
+            color: #fff;
+            font-size: 20px;
+            & > span:first-of-type {
+                color: @color-yellow;
+            }
+        }
+    }
+    #ransom-block-createtrade {
+        & > p:first-of-type:not(.header1) {
+            font-size: 24px;
+            font-weight: bold;
+            color: @color-yellow;
+        }
+        & > p:last-of-type:not(.genText) {
+            font-size: 20px;
+            color: #fff;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+    #ransom-price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #ransom-stage-one, #ransom-stage-two {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            font-family: Myriad Pro;
+            font-size: 35px;
+            font-weight: 600;
+            height: 100px;
+            width: 100px;
+            background-color: @color-blue;
+            color: @color-dark-blue;
+            overflow: hidden;
+        }
+        #ransom-stage-one {
+            text-shadow: rgb(0, 160, 205) 1px 1px,
+            rgb(0, 162, 207) 2px 2px,
+            rgb(0, 163, 209) 3px 3px,
+            rgb(0, 165, 211) 4px 4px,
+            rgb(0, 166, 213) 5px 5px,
+            rgb(0, 168, 215) 6px 6px,
+            rgb(0, 169, 217) 7px 7px,
+            rgb(0, 171, 219) 8px 8px,
+            rgb(0, 172, 221) 9px 9px,
+            rgb(0, 174, 223) 10px 10px,
+            rgb(0, 175, 225) 11px 11px,
+            rgb(0, 177, 227) 12px 12px,
+            rgb(0, 178, 229) 13px 13px,
+            rgb(0, 180, 231) 14px 14px,
+            rgb(0, 181, 233) 15px 15px,
+            rgb(0, 183, 235) 16px 16px,
+            rgb(0, 184, 237) 17px 17px,
+            rgb(0, 186, 239) 18px 18px,
+            rgb(0, 187, 241) 19px 19px,
+            rgb(0, 189, 243) 20px 20px;
+        }
+        #ransom-stage-two {
+            background-color: @color-dark-blue;
+            color: @color-blue;
+            text-shadow: 1px 1px 0px rgba(0, 189, 243, 0.5);
+        }
+        #ransom-stage-line {
+            flex: 1;
+            width: 100%;
+            color: white;
+            position: relative;
+            height: 100px;
+            z-index: 2;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 49px;
+                left: 0px;
+                right: 0px;
+                height: 1px;
+                z-index: -1;
+                background-color: @color-dark-blue;
+            }
+            #perc-line {
+                position: absolute;
+                top: 49px;
+                left: 0px;
+                width: 0%;
+                height: 1px;
+                z-index: -1;
+                background-color: @color-blue;
+                transition: width 1500ms;
+            }
+            #ransom-percent {
+                background-color: @color-blue;
+                color: @color-dark-blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                border-radius: 3px;
+                position: absolute;
+                top: 40px;
+                left: 50%;
+                margin-left: -25px;
+                width: 50px;
+                height: 20px;
+                -webkit-box-shadow: 1px 1px 0px 0px rgba(0,189,243,0.5);
+                -moz-box-shadow: 1px 1px 0px 0px rgba(0,189,243,0.5);
+                box-shadow: 1px 1px 0px 0px rgba(0,189,243,0.5);
+                & > span {
+                    font-size: 13px;
+                }
+            }
+            #ransom-price-view {
+                color: @color-yellow;
+                font-weight: 600;
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                margin-left: -50px;
+                width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                vertical-align: top;
+                & > span:first-of-type {
+                    text-shadow: 1px 1px 0px fade(@color-yellow, 50%);
+                    font-size: 30px;
+                }
+                & > span:last-of-type {
+                    vertical-align: bottom;
+                    font-size: 20px;
+                    margin-left: 5px;
+                    font-weight: normal;
+                    color: @color-blue;
+                }
+            }
+        }
+    }
+    #ransom-block-payments {
+        color: #fff;
+        text-align: left;
+        margin: 50px 0px 0px 0px;
+        button {
+            display: block;
+            margin: 20px auto 0px auto;
+        }
+        .payment-icons-parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px;
+            & > input {
+                position: absolute;
+                display: none;
+            }
+            & > label {
+                background-color: @color-dark-blue;
+                width: 120px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                cursor: pointer;
+                margin: 5px;
+                & > p {
+                    color: grey;
+                    font-size: 12px;
+                    margin: 2px;
+                }
+            }
+            & > label:hover, & > input:checked + label {
+                .icons-payment-visa {
+                    background-position: 600px 0px;
+                }
+                .icons-payment-pawnshop {
+                    background-position: -791px 0px;
+                }
+                .icons-payment-mastercard {
+                    background-position: -704px 0px;
+                }
+                .icons-payment-paypal {
+                    background-position: -874px 0px;
+                }
+                .icons-payment-qiwi {
+                    background-position: -1000px 0px;
+                }
+                .icons-payment-webmoney {
+                    background-position: -1118px 0px;
+                }
+                .icons-payment-yandex {
+                    background-position: -1062px 0px;
+                }
+                .icons-payment-mobile {
+                    background-position: -1150px 0px;
+                }
+            }
+        }
+        .icons-payment {
+            display: block;
+            background-image: url('images/icons/payment-mini.png');
+            margin: 5px 0px;
+            height: 37px;
+        }
+        .icons-payment-visa {
+            width: 75px;
+            background-position: 0px 0px;
+        }
+        .icons-payment-pawnshop {
+            width: 57px;
+            background-position: -191px 0px;
+        }
+        .icons-payment-mastercard {
+            width: 57px;
+            background-position: -104px 0px;
+        }
+        .icons-payment-paypal {
+            width: 112px;
+            background-position: -274px 0px;
+        }
+        .icons-payment-qiwi {
+            width: 37px;
+            background-position: -400px 0px;
+        }
+        .icons-payment-webmoney {
+            width: 32px;
+            background-position: -518px 0px;
+        }
+        .icons-payment-yandex {
+            width: 40px;
+            background-position: -462px 0px;
+        }
+        .icons-payment-mobile {
+            width: 50px;
+            background-position: -550px 0px;
+        }
+    }
+}
+@media screen and (max-width: 860px) {
+    #inventary-block {
+        padding: 5px 0px 5px 3px;
+        flex: 0;
+        margin: 0px;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        #trade-url-enter {
+            position: absolute;
+            top: -110px;
+            left: 5%;
+            margin: 0px;
+            padding: 0px;
+            width: 90vw;
+            input {
+            }
+            button {
+            }
+        }
+        #inventary-block-search {
+            position: absolute;
+            top: -65px;
+            left: 5%;
+            width: 90vw;
+            margin: 0px;
+            & > input {
+            }
+        }
+        #inventary:not(.sell-inventory) {
+            overflow-y: scroll;
+            height: 360px;
+            width: 120px;
+            justify-content: center;
+            align-items: center;
+            & > label {
+                margin: 5px;
+            }
+        }
+        #inventary-block-scroll {
+            margin-left: -40px;
+            #choose-all {
+                font-size: 9px;
+                font-weight: normal;
+                width: 80px;
+                margin: 0px auto;
+            }
+        }
+    }
+    #ransom-block {
+        padding: 5px 3px 5px 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        #ransom-price {
+            #ransom-stage-one, #ransom-stage-two {
+                height: 50px;
+                width: 50px;
+                font-size: 17px;
+            }
+            #ransom-price-view {
+                span {
+                    font-size: 19px;
+                }
+            }
+        }
+        #ransom-block-payments {
+            margin: 10px 0px;
+            .payment-icons-parent {
+                height: 222px;
+                overflow-y: scroll;
+                & > div {
+                    margin: 2px;
+                }
+            }
+            button {
+                font-size: 13px;
+            }
+        }
+    }
+    #inventary-block-radio {
+        margin: 0px;
+        label {
+            font-size: 14px;
+            margin: 10px 10px;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    #inventary-block {
+        width: 130px;
+        #inventory-options {
+            #inventary-block-search {
+                & > input {
+                    font-size: 0.8em !important;
+                    padding: 8px 11px !important;
+                }
+            }
+        }
+        #trade-url-enter {
+            & > input,
+            & > button {
+                font-size: 0.8em;
+                padding: 8px 11px;
+            }
+        }
+        #inventary-block-scroll {
+            #choose-all {
+                font-size: 11px;
+            }
+        }
+    }
+    #ransom-block {
+        #ransom-price {
+            #ransom-stage-one, #ransom-stage-two {
+                height: 30px;
+                width: 30px;
+                font-size: 11px;
+            }
+            #ransom-stage-line {
+                font-size: 12px;
+                #ransom-price-view {
+                    span {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        #ransom-block-payments {
+            font-size: 13px;
+            margin: 10px 0px;
+            .payment-icons-parent {
+                height: 225px;
+                overflow-y: scroll;
+            }
+            button {
+                font-size: 11px;
+            }
+        }
+    }
+    #inventary-block-radio {
+        label {
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,533 @@
+@color-very-dark-blue: rgb(0,0,5);
+@color-dark-blue: rgb(0,8,21);
+@color-blue: rgb(0, 189, 243);
+@color-yellow: rgb(255,238,71);
+@color-red: rgb(126,19,20);
+@color-purple: rgb(77,57,75);
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: @color-dark-blue;
+    font-family: Arial;
+    background-image: url('images/back.jpg');
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+a {
+    color: rgb(180,180,180);
+    &:hover {
+        color: @color-yellow;
+    }
+}
+
+.scroll {
+    position: relative;
+}
+
+.scrollbar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    min-height: 30px;
+    width: 8px;
+    background-color: fade(grey, 50%);
+    border-radius: 50px;
+    transition: background, width 300ms;
+    &:hover {
+        width: 10px;
+        background-color: grey;
+    }
+}
+
+#content {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0px auto;
+    & > div {
+        background-color: fade(@color-very-dark-blue, 50%);
+        width: 1160px;
+        margin: 30px auto 0px auto;
+        padding: 20px;
+        position: relative;
+    }
+    .blocks {
+        background-color: fade(@color-very-dark-blue, 50%);
+        flex: 1;
+        width: 100%;
+        margin: 30px 10px 0px 10px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    #content > div {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    #content > .blocks {
+        margin: 30px 0px 0px 0px;
+    }
+}
+
+.h1 {
+    font-size: 30px;
+    color: #fff;
+    margin: 20px 0px;
+    span {
+        color: @color-yellow;
+    }
+}
+.h2 {
+    font-size: 22px;
+    color: #fff;
+    margin: 20px 0px;
+    span {
+        color: @color-yellow;
+    }
+}
+.h3 {
+    font-size: 17px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 20px 0px;
+    text-transform: uppercase;
+    span {
+        margin-left: 20px;
+        color: @color-yellow;
+    }
+}
+
+.paragraph {
+    font-size: 16px;
+    color: #fff;
+    text-indent: 0px;
+    margin: 20px 0px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+    .h1 {
+
+    }
+    .h2 {
+
+    }
+    .h3 {
+        font-size: 14px;
+        span {
+            margin: 0px;
+        }
+    }
+    .paragraph {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .h1 {
+
+    }
+    .h2 {
+
+    }
+    .h3 {
+        font-size: 12px;
+        span {
+            margin: 0px;
+        }
+    }
+    .paragraph {
+        font-size: 13px;
+    }
+}
+
+.arrow-cloud {
+    background-color: fade(@color-dark-blue, 30%);
+    border-radius: 5px;
+    margin: 0px 40px;
+    margin-top: 20px;
+    position: relative;
+    border: 1px solid darken(@color-blue,25%);
+    //mix-blend-mode: lighten;
+    text-align: justify;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50px;
+        top: -10px;
+        border: 5px solid darken(@color-blue,25%);
+        border-top-color: transparent;
+        border-right-color: transparent;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        left: 51px;
+        top: -8px;
+        border: 5px solid fade(@color-dark-blue, 30%);
+        border-top-color: transparent;
+        border-right-color: transparent;
+    }
+}
+
+.block-header {
+  display: inline-block;
+  border-bottom: 1px solid @color-blue;
+  color: #fff;
+}
+
+/*------------------------|
+|standart input and button|
+|------------------------*/
+.input-forlink {
+    display: flex;
+    margin: 50px 40px 0px 40px;
+    & > input {
+        .standart-input;
+        margin-right: 5px;
+    }
+    & > button {
+        .standart-button;
+    }
+}
+.standart-input {
+    flex: 1;
+    width: 100%;
+    background: none;
+    padding: 10px 15px;
+    min-width: 160px;
+    font-size: 16px;
+    color: @color-yellow;
+    outline: none;
+    border: 1px solid @color-blue;
+    border-radius: 5px;
+    &::-webkit-input-placeholder {color:@color-blue;}
+    &::-moz-placeholder          {color:@color-blue;}
+    &:-moz-placeholder           {color:@color-blue;}
+    &:-ms-input-placeholder      {color:@color-blue;}
+    &:focus {
+        border: 1px solid darken(@color-blue,25%);
+        &::-webkit-input-placeholder {color:darken(@color-blue,25%);}
+        &::-moz-placeholder          {color:darken(@color-blue,25%);}
+        &:-moz-placeholder           {color:darken(@color-blue,25%);}
+        &:-ms-input-placeholder      {color:darken(@color-blue,25%);}
+    }
+}
+.standart-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    box-shadow: 0 0 40px 40px @color-blue inset, 0 0 0 0 @color-blue;
+    transition: 200ms linear;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: @color-dark-blue;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 10px 0 @color-blue inset, 0 0 10px 4px @color-blue;
+        color: @color-blue;
+    }
+    &:active {
+        background: darken(@color-blue, 25%);
+    }
+}
+.icon-list {
+    width: 16px;
+    height: 16px;
+    background-image: url('images/icons/list.png');
+    margin-right: 5px;
+}
+.standart-button:hover .icon-list {
+    background-position: -16px 0px;
+}
+
+.info-link {
+    font-size: 12px;
+    display: block;
+    text-align: left;
+    margin: 0px;
+    color: #fff;
+    & > a {
+        text-decoration: none;
+        color: @color-yellow;
+    }
+}
+
+.valign-center {
+    display: flex;
+    align-items: center;
+}
+
+/*------------------------|
+|    for inventoryBlock   |
+|------------------------*/
+#inventary-block-radio {
+    color: fade(@color-blue, 30%);
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    & > input {
+        position: absolute;
+        display: none;
+        &:checked + label {
+            color: @color-blue;
+        }
+    }
+    label {
+        cursor: pointer;
+        transition: color 300ms;
+        &:hover {
+            color: @color-blue;
+        }
+    }
+}
+#inventary-block {
+    padding-bottom: 60px;
+    position: relative;
+    &.active {
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: rgba(0,0,0,0.3);
+        }
+    }
+    #inventary-block-radio {
+        color: fade(@color-blue, 30%);
+        font-size: 30px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        p {
+            cursor: pointer;
+            transition: color 300ms;
+            &:hover {
+                color: @color-blue;
+            }
+        }
+        .active {
+            color: @color-blue;
+        }
+    }
+    #trade-url-enter {
+        margin: 5px 0px 0px 0px;
+    }
+    #inventary-block-search {
+        margin: 20px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        input:checked + label {
+            background-color: @color-blue;
+        }
+        #check-csgo, #check-dota2 {
+            position: absolute;
+            display: none;
+        }
+        #search {
+            width: 100%;
+            background-color: @color-dark-blue;
+            border: 1px solid @color-dark-blue;
+            padding: 10px 10px;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+    }
+    #inventary {
+        margin: 5px -15px 0px -15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        & > input {
+            position: absolute;
+            display: none;
+            &:checked + label {
+                border-color: @color-blue;
+            }
+        }
+        & > label {
+            position: relative;
+            margin: 15px 15px 0px 15px;
+            margin-bottom: 30px;
+            width: 80px;
+            height: 80px;
+            border-top: 2px solid transparent;
+            //background-color: @color-dark-blue;
+            //background-image: url('images/esc.png');
+            background: -moz-linear-gradient(top, rgba(0,8,21,1) 0%, rgba(125,185,232,0) 100%);
+            background: -webkit-linear-gradient(top, rgba(0,8,21,1) 0%,rgba(125,185,232,0) 100%);
+            background: linear-gradient(to bottom, rgba(0,8,21,1) 0%,rgba(125,185,232,0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000815', endColorstr='#007db9e8',GradientType=0 );
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% auto;
+            cursor: pointer;
+            & > p:first-of-type {
+                margin: 2px;
+                font-size: 13px;
+                text-align: left;
+                span:first-of-type {
+                    color: @color-blue;
+                }
+                span:last-of-type {
+                    margin-left: 5px;
+                    color: @color-yellow;
+                }
+            }
+            & > p:last-of-type {
+                position: absolute;
+                bottom: -40px;
+                margin: 2px;
+                font-size: 12px;
+                text-align: left;
+                color: @color-blue;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            & > div {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 2px;
+                font-size: 12px;
+                span {
+                    color: @color-red;
+                }
+                button {
+                    font-size: 12px;
+                    border: none;
+                    outline: none;
+                    color: @color-blue;
+                    background: none;
+                }
+            }
+            &:hover {
+                border-color: @color-blue;
+            }
+            &:last-of-type {
+                margin-right: -1px;
+            }
+        }
+        .invisibility {
+            margin: 0px 15px;
+            background: none;
+            height: 0;
+            &:hover {
+                border-color: transparent;
+                cursor: default;
+            }
+        }
+    }
+    #inventary-block-scroll {
+        margin: 20px 0px 0px 0px;
+        #choose-all {
+            .standart-button;
+            font-size: 11px;
+            margin: 0px auto;
+            padding: 6px 10px;
+            transition: none;
+            &:hover {
+
+            }
+        }
+    }
+}
+
+.iconimg-parent {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    padding: 6px;
+    margin: 5px;
+    transition: 300ms background;
+    cursor: pointer;
+    background-color: fade(@color-blue, 10%);
+    &.active {
+        background-color: @color-blue;
+    }
+    &:hover {
+        background-color: @color-blue;
+    }
+}
+.iconimg {
+    width: 35px;
+    height: 35px;
+    background-image: url('images/icons/dota2-csgo_shop.png');
+    background-repeat: no-repeat;
+    &.csgo {
+        background-position: -35px 0px;
+    }
+}
+
+
+/*------------------------|
+|    SandPRELOADER v1.0   |
+|------------------------*/
+#parentSandPre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0,34,64,0.7);
+}
+#timePreloader {
+    width: 80px;
+    height: 80px;
+    margin: 0px auto;
+    transition: all 1s;
+    &.active {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/*------------------------|
+|    SandPRELOADER v1.0   |
+|------------------------*/
+@keyframes showPopupLeft {
+    from {
+        left: -280px;
+    }
+    top {
+        left: 0px;
+    }
+}
+.popup-left {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color: @color-dark-blue;
+    width: 280px;
+    animation: showPopupLeft 500ms ease-in-out;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
